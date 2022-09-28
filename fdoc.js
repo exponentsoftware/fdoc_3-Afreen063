@@ -64,8 +64,38 @@ function copyAndEditObject(studentInfo)
 {
     let result = JSON.parse(JSON.stringify(studentInfo));
     result.skills.frontEnd.push({skill:'BootStrap',level: 8})
-    console.log(studentInfo.skills.frontEnd);
-    console.log(result.skills.frontEnd);
+    result.skills.backEnd.push({skill:'Express',level: 9})
+    result.skills.dataBase.push({skill:'SQL',level: 8})
+    result.skills.dataScience.push('SQL')
+    console.log(studentInfo.skills);
+    console.log(result.skills);
 
+
+    //length of object keys
+    let l=0
+    Object.keys(result).forEach((e)=>{
+    l++
+   })
+   console.log(l);
+
+   //length of object value
+   let value=0;
+   Object.values(result).forEach(()=>{
+    value++
+   }
+   )
+   console.log(value);
+
+   //length of skill object
+   let length=0
+   Object.keys(result.skills).forEach((e)=>{
+    length++
+   })
+   console.log(length);
+
+   //iterate key of object
+   Object.keys(result).forEach((e)=>{
+    console.log(e);
+   })
 }
 copyAndEditObject(student);
