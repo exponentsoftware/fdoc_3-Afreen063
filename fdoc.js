@@ -209,3 +209,24 @@ function signUp(username, email,password, createdAt)
 }
 
 signUp("Afreen", "email","123443", "date")
+
+function signIn(username, password)
+{
+    for(let i=0;i<users.length;i++)
+    {
+        if(users[i].username==username)
+        {
+            if(users[i].password==password)
+            {
+                    console.log("logged In");
+                    users[i].isLoggedIn=true;
+            }
+            else{
+                console.log("Incorrect pass word or username");
+            }
+        }
+        
+    }
+}
+
+signIn("Afreen","123443")
