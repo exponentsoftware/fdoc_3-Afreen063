@@ -230,3 +230,82 @@ function signIn(username, password)
 }
 
 signIn("Afreen","123443")
+
+
+//b
+
+function rateProduct(userId, rating,name)
+{
+     for(let i=0;i<products.length;i++)
+     {
+        Object.keys(products[i]).forEach((d)=>{
+            if(d==="name")
+            {
+                if(products[i].name===name)
+                {
+                    products[i].ratings.push({
+                        userId:userId,
+                        rate:rating
+                    })
+                }
+            }
+        })
+     }
+      console.log(products[1].ratings)
+}
+rateProduct("yuhhgh",5,"Laptop");
+
+function averageRating(name)
+{
+    let count=0,k=0;
+     for(let i=0;i<products.length;i++)
+     {
+        Object.values(products[i]).forEach((e)=>{
+            if(e==name)
+            {
+                for(let j=0;j<products[i].ratings.length;j++)
+                {
+                    count+=products[i].ratings[j].rate;
+                    k++;
+                }
+                console.log(`avg rating = ${count/k}`)
+            }
+        })
+     }
+}
+averageRating("mobile phone")
+
+
+//c 
+function likeProduct(userId, productName)
+{
+    let count=0,swap=0;
+    for(let i=0;i<products.length;i++)
+    {
+          Object.values(products[i]).forEach((e)=>{
+            if(e==productName)
+            {
+               for(let j=0;j<products[i].likes.length;j++)
+               {
+                if(products[i].likes[j]==userId)
+                {
+                     count++;
+                     swap=products[i].likes[j];
+                    products[i].likes[j]= products[i].likes[products[i].likes.length-1];
+                    products[i].likes[products[i].likes.length-1]=swap;
+                    products[i].likes.pop();
+                     console.log("like removed");
+                }
+               }
+               if(count==0)
+               {
+                products[i].likes.push(userId);
+                console.log("like added");
+                console.log(products[i].likes)
+               }
+            }
+          })
+    }
+}
+
+likeProduct('fg1999y',"TV");
